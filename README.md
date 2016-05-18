@@ -1,13 +1,12 @@
 # jackdbrowne's dotfiles
 This repository contains my personalised linux configuration. This repository is mostly built for my benefit, although others may find it useful. In this repository you will find my configuration for: 
 
-- Arch Linux
-- bspwm
-- sxhkd
-- zsh
-- vim
+- bspwm (window manager)
+- sxhkd (hotkey daemon)
+- zsh (shell)
+- vim (text editor)
+- mutt (mail client)
 - Xresources
-- weechat
 
 ## Installation
 
