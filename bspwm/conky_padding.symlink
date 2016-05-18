@@ -1,0 +1,52 @@
+#!/bin/sh
+maximum_width=$(grep 'maximum_width' ~/.conkyrc | cut -d' ' -f2)
+border_margin=$(grep 'border_outer_margin' ~/.conkyrc | cut -d' ' -f2)
+ 
+function shadow() {
+  if pidof compton >/dev/null; then
+    R=$(grep 'shadow-radius' ~/.compton.conf | sed 's/.*\([0-9]\);/\1/')
+    X=$(grep 'shadow-offset-x' ~/.compton.conf | sed 's/.*\([0-9]\);/\1/')
+    echo $(( $R ** 2 - $X ** 2 + 2 ))
+  else
+    echo 0
+  fi
+}
+ 
+function tiled() {
+  D=$(bspc query --tree --monitor DVI-1 | grep 'T - \*' | awk '{ print $1; }')
+  G=$(bspc config --desktop $D window_gap)
+  echo $(( $maximum_width + $border_margin * 2 - $G + 2 + $(shadow) ))
+}
+ 
+function monocle() {
+  echo $(( $maximum_width + $border_margin * 2 + $(shadow) ))
+}
+ 
+function desktop() {
+  if [[ $(bspc query --monitors --monitor focused) = DVI-0 ]]; then
+    bspc query --tree --monitor last | grep $'^\t*[0-9].*\*' | sed 's/\t\([0-9]\) .*/\1/'
+  else
+    bspc query --desktops --desktop focused
+  fi
+}
+ 
+if xdotool search --onlyvisible --classname 'Conky'; then
+  if bspc query --tree --monitor DVI-1 | grep -q ' M - \*'; then
+    P=$(desktop_margin)
+    bspc config -m DVI-1 top_padding $P
+    bspc config -m DVI-1 left_padding $P
+    bspc config -m DVI-1 bottom_padding $P
+    bspc config -m DVI-1 right_padding $(monocle)
+  else
+    bspc config -m DVI-1 right_padding $(tiled)
+  fi
+else
+  if bspc query --tree --monitor DVI-1 | grep -q ' M - \*'; then
+    bspc config -m DVI-1 top_padding 0
+    bspc config -m DVI-1 left_padding 0
+    bspc config -m DVI-1 bottom_padding 0
+    bspc config -m DVI-1 right_padding 0
+  else
+    bspc config -m DVI-1 right_padding $(( $(desktop_margin) - $(bspc config --desktop $(desktop) window_gap) ))
+  fi
+fi
