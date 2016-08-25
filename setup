@@ -99,7 +99,7 @@ link_file () {
   fi
 }
 
-install_dotfiles () {
+run_installers () {
   info 'installing dotfiles'
 
   local overwrite_all=false backup_all=false skip_all=false
@@ -110,7 +110,7 @@ install_dotfiles () {
 	done
 }
 
-install_dotfiles
+run_installers
 
 echo ''
 echo 'All installed!'

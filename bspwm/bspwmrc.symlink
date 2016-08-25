@@ -11,11 +11,13 @@ bspc config focus_by_distance   true
 bspc monitor -d TERMINALS WEB DEVELOPMENT MAIL FILES MEDIA
 
 bspc rule -a chromium desktop=WEB
-bspc rule -a jetbrains-rubymine desktop=DEVELOPMENT
+bspc rule -a rubymine desktop=DEVELOPMENT
 bspc rule -a pycharm desktop=DEVELOPMENT
-bspc rule -a intellij-idea-ultimate-edition desktop=DEVELOPMENT
+bspc rule -a idea desktop=DEVELOPMENT
+bspc rule -a clion desktop=DEVELOPMENT
 bspc rule -a mutt desktop=MAIL
 bspc rule -a vifm desktop=FILES
+bspc rule -a vlc desktop=MEDIA
 
 compton --config "$HOME/.config/compton.conf" -b
 panel &

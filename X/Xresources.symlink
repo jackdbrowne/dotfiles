@@ -1,4 +1,55 @@
-! URxvt*rxvt-unicode (urxvt) v9.21 - released: 2014-12-31
+! Base16 Railscasts
+! Scheme: Ryan Bates (http://railscasts.com)
+
+#define base00 #2b2b2b
+#define base01 #272935
+#define base02 #3a4055
+#define base03 #5a647e
+#define base04 #d4cfc9
+#define base05 #e6e1dc
+#define base06 #f4f1ed
+#define base07 #f9f7f3
+#define base08 #da4939
+#define base09 #cc7833
+#define base0A #ffc66d
+#define base0B #a5c261
+#define base0C #519f50
+#define base0D #6d9cbe
+#define base0E #b6b3eb
+#define base0F #bc9458
+
+*.foreground:   base05
+*.background:   base00
+*.cursorColor:  base05
+
+*.color0:       base00
+*.color1:       base08
+*.color2:       base0B
+*.color3:       base0A
+*.color4:       base0D
+*.color5:       base0E
+*.color6:       base0C
+*.color7:       base05
+
+*.color8:       base03
+*.color9:       base08
+*.color10:      base0B
+*.color11:      base0A
+*.color12:      base0D
+*.color13:      base0E
+*.color14:      base0C
+*.color15:      base07
+
+! Note: colors beyond 15 might not be loaded (e.g., xterm, urxvt),
+! use 'shell' template to set these if necessary
+*.color16:      base09
+*.color17:      base0F
+*.color18:      base01
+*.color19:      base02
+*.color20:      base04
+*.color21:      base06
+
+
 ! URxvt*options: perl,xft,styles,combining,blink,iso14755,unicode3,encodings=eu+vn+jp+jp-ext+kr+zh+zh-ext,fade,transparent,tint,XIM,frills,selectionscrolling,wheel,slipwheel,cursorBlink,pointerBlank,scrollbars=plain+rxvt+NeXT+xterm
 ! URxvt*Usage: urxvt [options] [-e command args]
 ! URxvt*termName:                       string
@@ -115,53 +166,28 @@ URxvt*depth:                            32
 ! URxvt*tabbar-fg:                      colour
 URxvt*url-launcher:                     /usr/bin/firefox
 
-! Base16 Railscasts
-! Scheme: Ryan Bates (http://railscasts.com)
+rofi*opacity:                           80
+rofi*color-normal:                   		base00,base07,#404040,base07,base00
+rofi*color-urgent:                   		base00,base08,#404040,base08,base00
+rofi*color-active:                   		base00,base0D,#404040,base0D,base00
+rofi*color-window:                   		base00,base07
 
-#define base00 #2b2b2b
-#define base01 #272935
-#define base02 #3a4055
-#define base03 #5a647e
-#define base04 #d4cfc9
-#define base05 #e6e1dc
-#define base06 #f4f1ed
-#define base07 #f9f7f3
-#define base08 #da4939
-#define base09 #cc7833
-#define base0A #ffc66d
-#define base0B #a5c261
-#define base0C #519f50
-#define base0D #6d9cbe
-#define base0E #b6b3eb
-#define base0F #bc9458
+rofi*fullscreen:                        true
+rofi*padding:                           400
+rofi*hide-scrollbar:                    true
+rofi*font:                              mono 12
+rofi*sidebar-mode:                      false
+rofi*modi:                              window,drun,ssh
 
-*.foreground:   base05
-*.background:   base00
-*.cursorColor:  base05
-
-*.color0:       base00
-*.color1:       base08
-*.color2:       base0B
-*.color3:       base0A
-*.color4:       base0D
-*.color5:       base0E
-*.color6:       base0C
-*.color7:       base05
-
-*.color8:       base03
-*.color9:       base08
-*.color10:      base0B
-*.color11:      base0A
-*.color12:      base0D
-*.color13:      base0E
-*.color14:      base0C
-*.color15:      base07
-
-! Note: colors beyond 15 might not be loaded (e.g., xterm, urxvt),
-! use 'shell' template to set these if necessary
-*.color16:      base09
-*.color17:      base0F
-*.color18:      base01
-*.color19:      base02
-*.color20:      base04
-*.color21:      base06
+rofi.kb-custom-1:                       Super+1
+rofi.kb-custom-2:                       Super+2
+rofi.kb-custom-3:                       Super+3
+rofi.kb-custom-4:                       Super+4
+rofi.kb-custom-5:                       Super+5
+rofi.kb-custom-6:                       Super+6
+rofi.kb-custom-7:                       Super+7
+rofi.kb-custom-8:                       Super+8
+rofi.kb-custom-9:                       Super+9
+rofi.kb-custom-10:                      Super+0
+rofi.kb-mode-next:                      Super+Right,Super+Tab
+rofi.kb-mode-previous:                  Super+Left,Super+Shift+Tab

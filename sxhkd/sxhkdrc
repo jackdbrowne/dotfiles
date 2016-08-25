@@ -8,7 +8,10 @@ super + Return
 
 # program launcher
 super + space
-	dmenu_run
+	rofi -show drun -sidebar-mode
+
+ctrl + alt + Delete
+  rofi -modi "power:/home/jack/.dotfiles/bin/rofi/power.sh" -show "power"
 
 # make sxhkd reload its configuration files:
 super + Escape

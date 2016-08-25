@@ -1,0 +1,3 @@
+#!/bin/sh
+amixer set Master unmute && amixer set Master 5%+
+notify-send 'Hello world!' 'This is a test'
