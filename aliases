@@ -1,0 +1,26 @@
+alias ll="ls -al"
+alias ln="ln -v"
+alias mkdir="mkdir -p"
+alias e="$EDITOR"
+alias v="$VISUAL"
+
+# Enable grep colour by default
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
+# Network
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias localip="ipconfig getifaddr en0"
+
+alias please='sudo'
+alias reload!='. ~/.zshrc'
+
+# Pretty print the path
+#alias path='echo $PATH | tr -s ":" "\n"'
+alias path='echo -e ${PATH//:/\\n}'
+
+# Include custom aliases
+if [[ -f ~/.aliases.local ]]; then
+  source ~/.aliases.local
+fi

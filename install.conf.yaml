@@ -1,0 +1,13 @@
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]
+
+- clean: ['~']
+
+- link:
+    ~/.aliases: aliases
+    ~/.zsh: zsh
+    ~/.zshrc: zshrc
+    ~/.vim: vim
+    ~/.vimrc: vimrc
+    ~/.hushlogin: hushlogin
+    ~/.bin: bin 
