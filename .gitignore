@@ -1,1 +1,4 @@
-vim/vim.symlink/plugged/*
+vim/plugged/*
+vim/backups/*
+vim/swaps/*
+vim/undo/*
