@@ -1,0 +1,15 @@
+[core]
+	excludesfile = ~/.gitignore_global
+
+[push]
+  default = simple
+
+[pull]
+  rebase = true
+
+[init]
+  defaultBranch = main
+
+# For local overrides which shouldn't be in public repos
+[include]
+	path = ~/.gitconfig.local

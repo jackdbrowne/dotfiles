@@ -11,4 +11,6 @@
     ~/.vimrc: vimrc
     ~/.hushlogin: hushlogin
     ~/.bin: bin 
+    ~/.gitignore_global: gitignore_global
+    ~/.gitconfig: gitconfig
 
