@@ -1,3 +1,4 @@
+*.zwc
 vim/plugged/*
 vim/backups/*
 vim/swaps/*
