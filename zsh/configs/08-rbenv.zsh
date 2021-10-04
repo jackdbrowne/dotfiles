@@ -2,5 +2,5 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 
 if (( $+commands[rbenv] ))
 then
-  eval "$(rbenv init -)"
+  znap eval rbenv-init 'rbenv init -'
 fi

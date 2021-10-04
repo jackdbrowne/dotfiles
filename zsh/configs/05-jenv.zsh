@@ -1,2 +1,2 @@
 export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
+znap eval jenv-init "jenv init -"

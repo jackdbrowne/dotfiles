@@ -1,5 +1,12 @@
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
+  - [chsh -s $(which zsh), Making zsh the default shell]
+
+- create:
+  - ~/.zsh-plugins
+
+- shell:
+  - ["[[ -f ~/.zsh-plugins/zsh-snap/znap.zsh ]] || git clone https://github.com/marlonrichert/zsh-snap.git ~/.zsh-plugins/zsh-snap", Install znap]
 
 - clean: ['~']
 
