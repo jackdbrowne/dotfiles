@@ -1,6 +1,6 @@
 *.zwc
-vim/plugged/*
-vim/backups/*
-vim/swaps/*
-vim/undo/*
-vim/.netrwhist
+vim/vimdir/plugged/*
+vim/vimdir/backups/*
+vim/vimdir/swaps/*
+vim/vimdir/undo/*
+vim/vimdir/.netrwhist
