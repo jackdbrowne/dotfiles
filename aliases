@@ -4,6 +4,8 @@ alias mkdir="mkdir -p"
 alias e="$EDITOR"
 alias v="$VISUAL"
 
+alias brewdeps="brew leaves | xargs brew deps --include-build --tree"
+
 # Enable grep colour by default
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
