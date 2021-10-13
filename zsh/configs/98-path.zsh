@@ -1,4 +1,4 @@
 # ensure dotfiles bin directory is loaded first
-PATH="$HOME/.bin:/usr/local/bin:$PATH"
+PATH="$HOME/.bin:$PATH"
 
 export -U PATH
