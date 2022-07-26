@@ -52,7 +52,7 @@ desktop.ini
 #############
 .vscode
 .idea
-.iml
+*.iml
 *.sublime-workspace
 
 # Version management files #
