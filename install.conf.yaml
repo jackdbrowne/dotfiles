@@ -4,6 +4,8 @@
   - [brew bundle install --file brew/Brewfile, Install brew packages]
 
 - create:
+  - ~/.aws
+  - ~/.m2
   - ~/.zsh
   - ~/.zsh-plugins
 
