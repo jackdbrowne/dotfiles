@@ -1,0 +1,5 @@
+# List AWS stacks in a table view
+
+function aws-stacks() {
+  aws cloudformation list-stacks --stack-status-filter CREATE_IN_PROGRESS CREATE_FAILED CREATE_COMPLETE ROLLBACK_IN_PROGRESS ROLLBACK_FAILED ROLLBACK_COMPLETE DELETE_IN_PROGRESS DELETE_FAILED UPDATE_IN_PROGRESS UPDATE_COMPLETE_CLEANUP_IN_PROGRESS UPDATE_COMPLETE UPDATE_FAILED UPDATE_ROLLBACK_IN_PROGRESS UPDATE_ROLLBACK_FAILED UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS UPDATE_ROLLBACK_COMPLETE REVIEW_IN_PROGRESS --output table --query 'StackSummaries[?!starts_with(StackName, `StackSet-AWS-Landing-Zone`) && !contains(StackName, `ControlTower`) && !starts_with(StackName, `SC-`) && StackName != `CDKToolkit` && StackName != `CiCdInfraStack` && StackName != `nuke`].{StackName:StackName, LastUpdatedTime:not_null(LastUpdatedTime, CreationTime), StackStatus:StackStatus} | reverse(sort_by(@, &LastUpdatedTime))' --profile $1 --no-cli-pager
+}
