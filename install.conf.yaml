@@ -17,6 +17,7 @@
     ~/.zsh/configs: zsh/configs
     ~/.zsh/functions: zsh/functions
     ~/.zshrc: zsh/zshrc
+    ~/.iterm2: iterm2
     ~/.vim: vim/vimdir
     ~/.vimrc: vim/vimrc
     ~/.tmux.conf: tmux/tmux.conf
