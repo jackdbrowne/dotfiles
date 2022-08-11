@@ -9,6 +9,7 @@
 
 - shell:
   - ["[[ -f ~/.zsh-plugins/zsh-snap/znap.zsh ]] || git clone https://github.com/marlonrichert/zsh-snap.git ~/.zsh-plugins/zsh-snap", Install znap]
+  - ["cp fonts/* ~/Library/Fonts", Install fonts]
 
 - clean: ['~']
 
