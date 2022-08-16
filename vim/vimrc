@@ -2,7 +2,9 @@
 " Created: 12th November 2015
 
 set nocompatible " Don't try to be vi compatible. This must be first
+
 "Plugins {{{
+set regexpengine=0
 filetype off
 source $HOME/.vim/plug.vim
 filetype plugin indent on " Enable filetype detection
