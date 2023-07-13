@@ -1,3 +1,3 @@
-if (( $+commands[rbenv] )); then
+if (( $+commands[bw] )); then
     znap fpath _bw 'bw completion --shell zsh; print "\\n"'
 fi
