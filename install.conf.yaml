@@ -1,7 +1,6 @@
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
   - ['[ $SHELL = $(which zsh) ] || chsh -s $(which zsh)', Making zsh the default shell]
-  - [brew bundle install --file brew/Brewfile, Install brew packages]
 
 - create:
   - ~/.aws
