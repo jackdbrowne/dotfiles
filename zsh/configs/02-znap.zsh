@@ -1,7 +1,7 @@
 source ~/.zsh-plugins/zsh-snap/znap.zsh
 
 znap source ohmyzsh/ohmyzsh
-znap source ohmyzsh/ohmyzsh plugins/{git,sudo,command-not-found,aws}
+znap source ohmyzsh/ohmyzsh plugins/{git,sudo,command-not-found,zsh-interactive-cd,aws,kubectl,helm,minikube,docker}
 
 # Load bundles from external repos
 znap source zsh-users/zsh-completions
