@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -e
 
 javaPackages=('temurin' 'temurin8' 'temurin11' 'temurin17')
 javaVersionHome=/Library/Java/JavaVirtualMachines
@@ -21,25 +22,29 @@ scriptPath="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
 certsPath=$scriptPath/cacerts
 
 if [ ! -f "$certsPath" ]; then
-    echo "Could not find cacerts file" > /dev/stderr
+    echo "No cacerts file found, skipping override" > /dev/stderr
 fi
+
+echo "Removing existing jenv aliases"
+for jenv_alias in $(jenv versions --bare); do
+    jenv remove $jenv_alias
+done
 
 # Configure each installed JDK
 for versionDir in $javaVersionHome/*/Contents/Home; do
-    majorVersion=$(grep 'JAVA_VERSION=' $versionDir/release | sed -E 's/JAVA_VERSION="([0-9]*).*/\1/')
-    
-    if [ $majorVersion -eq 1 ]; then
-        securityDir=$versionDir/jre/lib/security
-    else
-        securityDir=$versionDir/lib/security
-    fi
+    if [ -f "$certsPath" ]; then
+        majorVersion=$(grep 'JAVA_VERSION=' $versionDir/release | sed -E 's/JAVA_VERSION="([0-9]*).*/\1/')
+        securityDir=$([ $majorVersion -eq 1 ] && echo "$versionDir/jre/lib/security" || echo "$versionDir/lib/security")
 
-    if [ ! -d "$securityDir" ]; then
-        echo "Could not find security directory for $versionDir" > /dev/stderr
+        if [ ! -d "$securityDir" ]; then
+            echo "Could not find security directory for $versionDir" > /dev/stderr
+        else
+            sudo cp $certsPath $securityDir
+            # sudo chown root:wheel $securityDir/cacerts
+        fi
     fi
-
-    sudo cp $certsPath $securityDir
-    # sudo chown root:wheel $securityDir/cacerts
     jenv add $versionDir
 done
+
+$(jenv rehash)
 
